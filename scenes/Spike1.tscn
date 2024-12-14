@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmvxbr87dou5e"]
+
+[ext_resource type="Texture2D" uid="uid://c0pbc4jnt5hho" path="res://assets/sprites/misc/tempspike.png" id="1_mia2u"]
+[ext_resource type="Script" path="res://scripts/spike_1.gd" id="2_wo46b"]
+[ext_resource type="AudioStream" uid="uid://dee3cy28e7ssh" path="res://assets/sfx/deathsfx2.wav" id="3_10fo4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tgac"]
+size = Vector2(8, 7.55556)
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_mia2u")
+script = ExtResource("2_wo46b")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.25)
+scale = Vector2(1, 1.125)
+shape = SubResource("RectangleShape2D_8tgac")
+
+[node name="dienoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_10fo4")
+volume_db = -13.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

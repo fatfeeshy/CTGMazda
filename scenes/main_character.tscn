@@ -1,0 +1,227 @@
+[gd_scene load_steps=29 format=3 uid="uid://m6xct7afkcp0"]
+
+[ext_resource type="Script" path="res://scripts/main_character.gd" id="1_j3x0a"]
+[ext_resource type="Texture2D" uid="uid://coaf788enu47x" path="res://assets/sprites/characters/mainCharSpritesheet.png" id="1_kvrmv"]
+[ext_resource type="AudioStream" uid="uid://bofyh7m1sn84g" path="res://assets/sfx/Dash.wav" id="3_i6ol7"]
+[ext_resource type="AudioStream" uid="uid://bsxqnnbcgtuna" path="res://assets/sfx/Retro FootStep 03.wav" id="4_umflh"]
+[ext_resource type="AudioStream" uid="uid://j1l8v8n8h1nb" path="res://assets/sfx/Retro Jump Classic 08.wav" id="5_wg2lv"]
+[ext_resource type="Texture2D" uid="uid://i5tft2jwvktc" path="res://assets/sprites/misc/dashExplosionSheet.png" id="6_j5qa3"]
+[ext_resource type="AudioStream" uid="uid://h0q32hvh3aqk" path="res://assets/sfx/Retro Magic 06.wav" id="7_h2sex"]
+[ext_resource type="AudioStream" uid="uid://dee3cy28e7ssh" path="res://assets/sfx/deathsfx2.wav" id="8_imue0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58m32"]
+atlas = ExtResource("1_kvrmv")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66lby"]
+atlas = ExtResource("1_kvrmv")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k7my"]
+atlas = ExtResource("1_kvrmv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygu8v"]
+atlas = ExtResource("1_kvrmv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p7vr"]
+atlas = ExtResource("1_kvrmv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67gs1"]
+atlas = ExtResource("1_kvrmv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rou0q"]
+atlas = ExtResource("1_kvrmv")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on53k"]
+atlas = ExtResource("1_kvrmv")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc7uv"]
+atlas = ExtResource("1_kvrmv")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d61u2"]
+atlas = ExtResource("1_kvrmv")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qh5r"]
+atlas = ExtResource("1_kvrmv")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nv2g7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58m32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66lby")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k7my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygu8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p7vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67gs1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rou0q")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on53k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc7uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d61u2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qh5r")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0agtf"]
+size = Vector2(6, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr62g"]
+atlas = ExtResource("6_j5qa3")
+region = Rect2(0, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1c7j"]
+atlas = ExtResource("6_j5qa3")
+region = Rect2(9, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keeee"]
+atlas = ExtResource("6_j5qa3")
+region = Rect2(18, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bdoq"]
+atlas = ExtResource("6_j5qa3")
+region = Rect2(27, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecb7b"]
+atlas = ExtResource("6_j5qa3")
+region = Rect2(36, 0, 9, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcxap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr62g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1c7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keeee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bdoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecb7b")
+}],
+"loop": false,
+"name": &"dashed",
+"speed": 15.0
+}]
+
+[sub_resource type="Curve" id="Curve_xwcck"]
+_data = [Vector2(0, 0.351648), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_j3x0a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
+sprite_frames = SubResource("SpriteFrames_nv2g7")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_0agtf")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.069
+one_shot = true
+
+[node name="DashSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_i6ol7")
+volume_db = -12.0
+bus = &"SFX"
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_umflh")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wg2lv")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="AtarDash" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_lcxap")
+animation = &"dashed"
+frame = 4
+frame_progress = 1.0
+
+[node name="TishtryaRain" type="CPUParticles2D" parent="."]
+visible = false
+amount = 750
+lifetime = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(500, 250)
+angle_min = 90.0
+angle_max = 90.0
+scale_amount_min = 3.5
+scale_amount_max = 3.5
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_xwcck")
+color = Color(0.5, 0.583333, 1, 1)
+anim_speed_max = 128.0
+
+[node name="TishtryaRainSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_h2sex")
+volume_db = -12.0
+bus = &"SFX"
+
+[node name="dienoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_imue0")
+volume_db = -15.0
+bus = &"SFX"

@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbi2j3pfh8w5b"]
+
+[ext_resource type="Script" path="res://scripts/ending.gd" id="1_swgkx"]
+[ext_resource type="Texture2D" uid="uid://ndsop18y6itx" path="res://assets/sprites/misc/background.png" id="1_uh5li"]
+[ext_resource type="FontFile" uid="uid://bri7ktwb2k18c" path="res://assets/fonts/dpcomic.ttf" id="2_be06w"]
+[ext_resource type="Script" path="res://scripts/backtomenuending.gd" id="4_wm03a"]
+[ext_resource type="AudioStream" uid="uid://djm6ow2mtwncr" path="res://assets/music/Menus.wav" id="5_eikg8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtefs"]
+
+[node name="ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_swgkx")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(547, 386)
+scale = Vector2(3, 3)
+texture = ExtResource("1_uh5li")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 323)
+
+[node name="becamegod" type="Label" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -561.5
+offset_top = -409.0
+offset_right = 561.5
+offset_bottom = -232.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_be06w")
+theme_override_font_sizes/font_size = 196
+text = "BECAME A GOD!"
+
+[node name="deathdisplay" type="Label" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.5
+offset_top = -165.0
+offset_right = 269.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_be06w")
+theme_override_font_sizes/font_size = 120
+text = "placeholder"
+horizontal_alignment = 1
+
+[node name="ranking" type="Label" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.5
+offset_top = -25.0
+offset_right = 269.5
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_be06w")
+theme_override_font_sizes/font_size = 120
+text = "placeholder"
+horizontal_alignment = 1
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -772.0
+offset_top = -63.5
+offset_right = -28.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_be06w")
+theme_override_font_sizes/font_size = 130
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rtefs")
+text = "BACK TO MENU"
+script = ExtResource("4_wm03a")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_eikg8")
+volume_db = -4.0
+autoplay = true
+
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]

@@ -1,0 +1,103 @@
+[gd_scene load_steps=14 format=3 uid="uid://cdweojhrwj6f4"]
+
+[ext_resource type="Texture2D" uid="uid://bn83slw3nbl6p" path="res://assets/sprites/misc/LogoAnim.png" id="1_ivf2p"]
+[ext_resource type="Script" path="res://scripts/animated_sprite_2d.gd" id="2_wgvka"]
+[ext_resource type="Texture2D" uid="uid://bwj55y284vmfp" path="res://assets/sprites/misc/purewhite.jpg" id="3_iwma8"]
+[ext_resource type="AudioStream" uid="uid://cxtcujj2ugxvh" path="res://assets/sfx/BootUpDing.mp3" id="4_c3h4h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4whn"]
+atlas = ExtResource("1_ivf2p")
+region = Rect2(0, 0, 39, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtfkv"]
+atlas = ExtResource("1_ivf2p")
+region = Rect2(0, 0, 39, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et0ic"]
+atlas = ExtResource("1_ivf2p")
+region = Rect2(39, 0, 39, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miiok"]
+atlas = ExtResource("1_ivf2p")
+region = Rect2(78, 0, 39, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i37f0"]
+atlas = ExtResource("1_ivf2p")
+region = Rect2(117, 0, 39, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0syjs"]
+atlas = ExtResource("1_ivf2p")
+region = Rect2(156, 0, 39, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeswt"]
+atlas = ExtResource("1_ivf2p")
+region = Rect2(195, 0, 39, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3navl"]
+atlas = ExtResource("1_ivf2p")
+region = Rect2(234, 0, 39, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o17sm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4whn")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtfkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et0ic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miiok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i37f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0syjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeswt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3navl")
+}],
+"loop": false,
+"name": &"Pop",
+"speed": 8.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="dingsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_c3h4h")
+bus = &"SFX"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4.5, 4.5)
+
+[node name="Purewhite" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, 0.999997)
+scale = Vector2(0.608539, 0.502843)
+texture = ExtResource("3_iwma8")
+
+[node name="Logo" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o17sm")
+animation = &"Pop"
+autoplay = "Idle"
+frame = 6
+frame_progress = 1.0
+script = ExtResource("2_wgvka")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="Logo" method="_on_timer_timeout"]

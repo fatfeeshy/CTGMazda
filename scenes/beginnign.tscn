@@ -1,0 +1,280 @@
+[gd_scene load_steps=8 format=3 uid="uid://l4g2u6elyf4d"]
+
+[ext_resource type="Texture2D" uid="uid://db0ad0vlk1uvh" path="res://assets/sprites/tilemap/DreamBG.png" id="1_gwil2"]
+[ext_resource type="Script" path="res://scripts/beginnign.gd" id="1_yhohe"]
+[ext_resource type="FontFile" uid="uid://bri7ktwb2k18c" path="res://assets/fonts/dpcomic.ttf" id="3_3bau6"]
+[ext_resource type="AudioStream" uid="uid://dv1666kx5evty" path="res://assets/music/DreamSFX.mp3" id="4_ucc2j"]
+
+[sub_resource type="Animation" id="Animation_ybajb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text/Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text/Label3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text/Label4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Text/Label5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rdlu7"]
+resource_name = "epicIntro"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text/Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text/Label3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10, 15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text/Label4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 15, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Text/Label5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 20, 25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pid6l"]
+_data = {
+"RESET": SubResource("Animation_ybajb"),
+"epicIntro": SubResource("Animation_rdlu7")
+}
+
+[node name="beginnign" type="Node2D"]
+script = ExtResource("1_yhohe")
+
+[node name="DreamBg" type="Sprite2D" parent="."]
+position = Vector2(-2.00009, 18.625)
+scale = Vector2(129.318, 64.4318)
+texture = ExtResource("1_gwil2")
+
+[node name="Text" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Text"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -45.0
+offset_right = 234.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_3bau6")
+theme_override_font_sizes/font_size = 47
+text = "You're a newly believed-in God in the Sasanian Empire of Persia."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text1" type="Timer" parent="Text/Label"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Label2" type="Label" parent="Text"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -45.0
+offset_right = 234.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_3bau6")
+theme_override_font_sizes/font_size = 47
+text = "Though, you are not fully realized by the previous gods, and you need to prove your worth to them."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text2" type="Timer" parent="Text/Label2"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Label3" type="Label" parent="Text"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -45.0
+offset_right = 234.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_3bau6")
+theme_override_font_sizes/font_size = 47
+text = "The gods have crafted special trials for you to prove your worth."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text3" type="Timer" parent="Text/Label3"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Label4" type="Label" parent="Text"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -45.0
+offset_right = 234.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_3bau6")
+theme_override_font_sizes/font_size = 47
+text = "Powers will be given to you to help complete them."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text4" type="Timer" parent="Text/Label4"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Label5" type="Label" parent="Text"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -45.0
+offset_right = 234.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_3bau6")
+theme_override_font_sizes/font_size = 47
+text = "Good luck.
+You might need it."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text5" type="Timer" parent="Text/Label5"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pid6l")
+}
+autoplay = "epicIntro"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ucc2j")
+volume_db = -6.0
+autoplay = true

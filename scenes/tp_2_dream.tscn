@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://crjimr05ghxnj"]
+
+[ext_resource type="Script" path="res://scripts/Atar1TP.gd" id="1_xku46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a70lf"]
+size = Vector2(66, 110)
+
+[node name="TP2Dream" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_xku46")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1958, -77)
+shape = SubResource("RectangleShape2D_a70lf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
